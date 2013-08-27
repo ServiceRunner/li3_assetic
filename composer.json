@@ -1,0 +1,33 @@
+{
+    "name": "servicerunner/li3_assetic",
+    "type": "lithium-library",
+    "description": "Bring the power of Assetic to the Lithium Framework",
+    "keywords": ["assetic", "asset", "li3", "lithium"],
+    "homepage": "https://github.com/ServiceRunner/li3_assetic",
+    "authors": [
+        {
+            "name": "Olivier Louvignes",
+            "email": "olivier@mg-crea.com",
+            "homepage": "https://github.com/mgcrea"
+        },
+        {
+            "name": "Chris Jones",
+            "email": "leeked@gmail.com",
+            "homepage": "https://github.com/leek"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/ServiceRunner/li3_debug/contributors"
+        }
+    ],
+    "require": {
+        "composer/installers": "*",
+        "kriswallsmith/assetic": "dev-master"
+    },
+    "suggest": {
+        "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+        "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+        "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+        "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin"
+    },
+}
