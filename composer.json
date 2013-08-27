@@ -29,5 +29,5 @@
         "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
         "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
         "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin"
-    },
+    }
 }
