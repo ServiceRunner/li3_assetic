@@ -8,6 +8,7 @@
 
 namespace li3_assetic\extensions\helper;
 
+use lithium\core\ConfigException;
 use lithium\core\Environment;
 use lithium\core\Libraries;
 use lithium\template\helper\Html;
@@ -265,7 +266,7 @@ class Assetic extends \lithium\template\Helper
 
         $resolvedFilters = array();
         foreach ($filters as $filter) {
-            if(!$fm || !$fm->has($filter)) throw new \BadMethodCallException(sprintf('Filter `%s` has not been configured.', $filter));
+            if(!$fm || !$fm->has($filter)) throw new ConfigException(sprintf('Filter `%s` has not been configured.', $filter));
             $resolvedFilters[] = $fm->get($filter);
         }
 
