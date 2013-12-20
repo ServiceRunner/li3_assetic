@@ -12,17 +12,15 @@ Load `li3_assetic` by updating `config/bootstrap/libraries.php` (provided with e
 // ... snip ...
 
 Libraries::add('li3_assetic', array(
-    'config' => array(
-        'optimize'    => Environment::is('production'),
-        'debug'       => Environment::is('development'),
-        'stylesPath'  => LITHIUM_APP_PATH . '/webroot/css',
-        'scriptsPath' => LITHIUM_APP_PATH . '/webroot/js',
-        'filters'     => array(
-            'lessphp' => new Assetic\Filter\LessphpFilter(),
-            'yui_css' => new Assetic\Filter\Yui\CssCompressorFilter(LITHIUM_APP_PATH . '/../tools/yuicompressor-2.4.7.jar'),
-            'yui_js'  => new Assetic\Filter\Yui\JsCompressorFilter(LITHIUM_APP_PATH . '/../tools/yuicompressor-2.4.7.jar'),
-        ),
-    ),
+    'optimize'    => Environment::is('production'),
+    'debug'       => Environment::is('development'),
+    'stylesPath'  => LITHIUM_APP_PATH . '/webroot/css',
+    'scriptsPath' => LITHIUM_APP_PATH . '/webroot/js',
+    'filters'     => array(
+        'lessphp' => new Assetic\Filter\LessphpFilter(),
+        'yui_css' => new Assetic\Filter\Yui\CssCompressorFilter(LITHIUM_APP_PATH . '/../tools/yuicompressor-2.4.7.jar'),
+        'yui_js'  => new Assetic\Filter\Yui\JsCompressorFilter(LITHIUM_APP_PATH . '/../tools/yuicompressor-2.4.7.jar'),
+    )
 ));
 ```
 
