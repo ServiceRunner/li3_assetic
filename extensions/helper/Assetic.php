@@ -9,6 +9,7 @@
 namespace li3_assetic\extensions\helper;
 
 use lithium\core\Environment;
+use lithium\core\Libraries;
 use lithium\template\helper\Html;
 
 use Assetic\AssetWriter;
