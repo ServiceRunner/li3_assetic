@@ -8,6 +8,7 @@
 
 namespace li3_assetic\extensions\helper;
 
+use lithium\core\ConfigException;
 use lithium\core\Environment;
 use lithium\core\Libraries;
 use lithium\template\helper\Html;
@@ -101,6 +102,8 @@ class Assetic extends \lithium\template\Helper
         );
         $options += $defaults;
 
+        $config = static::$config;
+
         // Ensure arrays
         if(!is_array($source)) $source = array($source);
         if(!is_array($options['filters'])) $options['filters'] = array($options['filters']);
@@ -114,8 +117,8 @@ class Assetic extends \lithium\template\Helper
         foreach ($source as $leaf) {
             $leaf = self::guessExtension($leaf, $options);
 
-            if(strpos($leaf, '*')) $asset = new GlobAsset(APP_CSS_PATH . DS . $leaf, $filters);
-            else $asset = new FileAsset(APP_CSS_PATH . DS . $leaf, $filters);
+            if(strpos($leaf, '*')) $asset = new GlobAsset($config['stylesPath'] . DIRECTORY_SEPARATOR . $leaf, $filters);
+            else $asset = new FileAsset($config['stylesPath'] . DIRECTORY_SEPARATOR . $leaf, $filters);
             $ac->add($asset);
 
             if (!static::$config['optimize']) {
@@ -263,7 +266,7 @@ class Assetic extends \lithium\template\Helper
 
         $resolvedFilters = array();
         foreach ($filters as $filter) {
-            if(!$fm || !$fm->has($filter)) throw new \BadRequestException(sprintf('Filter `%s` has not been configured.', $filter));
+            if(!$fm || !$fm->has($filter)) throw new ConfigException(sprintf('Filter `%s` has not been configured.', $filter));
             $resolvedFilters[] = $fm->get($filter);
         }
 
